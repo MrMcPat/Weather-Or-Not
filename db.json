@@ -1,8 +1,12 @@
 {
   "addresses": [
     {
+      "address": "30000, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
+      "id": 3
+    },
+    {
       "address": "Duluth, Georgia 30096, United States",
-      "id": 2
+      "id": 4
     }
   ]
 }

@@ -49,6 +49,8 @@ const weatherContainerClass = document.querySelector(".weather-container")
 weatherContainerClass.hidden = true;
 const favoriteButtonId = document.querySelector("#favorite-button")
 favoriteButtonId.disabled = true
+const favoriteList = document.querySelector("#favorite-list")
+
 
 function convertInputToCoordinates() {
   // Creates location converter
@@ -431,7 +433,9 @@ function addFavorites(address) {
 
   favorite.appendChild(deleteButton)
   favorite.appendChild(copyButton)
-  document.querySelector("#favorite-list").appendChild(favorite)
+  favoriteList.appendChild(favorite)
+
+  favoriteButtonId.disabled = true
 
 }
 
@@ -452,7 +456,7 @@ function postAddress(addressName) {
 
 // Delete address from database
 function deleteAddressHandler() {
-  document.querySelector("#favorite-list").addEventListener("click", e => {
+  favoriteList.addEventListener("click", e => {
     document.querySelector(`#address-${e.target.id}`).remove()
     fetch(`http://localhost:3000/addresses/${e.target.id}`, {
       method: "DELETE",
@@ -481,9 +485,10 @@ function appendSubmittedAddress() {
     const favoriteItemList = document.querySelectorAll(".favorite-item")
     const iconList = document.querySelectorAll(".fa-trash-alt")
 
+    // Set id to be able to successfully give additional items ids
     iconList[0].id = 1
     favoriteItemList[0].id = `address-${1}`
-    
+    // Gives each appended item an id to be able to use the delete request
     for (i = 1; i <= favoriteItemList.length; i++) {
       iconList.forEach(item => {
         if (!item.id) {
@@ -494,7 +499,7 @@ function appendSubmittedAddress() {
     }
 
     // Opens sidebar to show favorited location waiting 3 seconds before closing
-    document.querySelector("#favorite-list").style.display = "block"
+    favoriteList.style.display = "block"
     sideBarId.style.width = "30%";
     sideBarId.style.display = "block";
     setTimeout(() => sideBarId.style.display = "none", 3000)
@@ -514,7 +519,7 @@ function displayAddressSidebar(data) {
     delAddress.classList.add("delete-button")
     copyAddress.classList.add("copy-button")
 
-    // Copies hovered address to clipboard
+    // Copies address to clipboard
     copyAddress.addEventListener("click", e => {
       navigator.clipboard.writeText(e.target.parentNode.parentNode.innerText)
     })
@@ -525,7 +530,7 @@ function displayAddressSidebar(data) {
 
     favAddress.appendChild(delAddress);
     favAddress.appendChild(copyAddress);
-    document.querySelector("#favorite-list").appendChild(favAddress);
+    favoriteList.appendChild(favAddress);
   })
 }
 
