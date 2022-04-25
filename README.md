@@ -1,6 +1,6 @@
 # Weather or Not
 
-<img src="assets/weatherornotlogo.png" width="300">
+<img src="weather-or-not/assets/weatherornotlogo.png" width="300">
 
 **Demo Link**: https://mrmcpat.github.io/Weather-Or-Not/
 
@@ -15,7 +15,7 @@
 - Used two external APIs: to retrieve location coordinates and to obtain weather data based on coordinates.
 # GIFs
 
-<img src="assets/weatherornot.gif" width="500">
+<img src="weather-or-not/assets/weatherornot.gif" width="500">
 
 # Credits
 
