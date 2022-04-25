@@ -2,7 +2,7 @@
 
 <img src="assets/weatherornotlogo.png" width="300">
 
-**Demo Link**: https://mrmcpat.github.io/over-and-under
+**Demo Link**: https://mrmcpat.github.io/Weather-Or-Not/
 
 # Description
 
