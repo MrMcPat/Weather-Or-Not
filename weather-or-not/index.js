@@ -444,7 +444,7 @@ function postAddress(addressName) {
   let addressObj = {
     address: addressName
   }
-  fetch("http://localhost:3000/addresses", {
+  fetch("https://weather-or-not-json-server.herokuapp.com/addresses", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -458,7 +458,7 @@ function postAddress(addressName) {
 function deleteAddressHandler() {
   favoriteList.addEventListener("click", e => {
     document.querySelector(`#address-${e.target.id}`).remove()
-    fetch(`http://localhost:3000/addresses/${e.target.id}`, {
+    fetch(`https://weather-or-not-json-server.herokuapp.com/addresses/${e.target.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -469,7 +469,7 @@ function deleteAddressHandler() {
 
 // Fetch data from database
 function getAddressData() {
-  fetch("http://localhost:3000/addresses")
+  fetch("https://weather-or-not-json-server.herokuapp.com/addresses")
     .then(resp => resp.json())
     .then(data => displayAddressSidebar(data))
 }
